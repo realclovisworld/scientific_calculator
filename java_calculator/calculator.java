@@ -2,14 +2,12 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 
 public class calculator {
-        int num1,num2,ans;
-        double pi = 3.14;
-        
-        
+        double num1,num2,ans;
        private static Scanner sc=new Scanner(System.in);
 
         void options(){
-            System.out.println("WELCOME USER!! ");
+            System.out.println("-----------------WELCOME USER!!-------------- ");
+            System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
             System.out.println("Please choose an option (1-8)");
             System.out.println("1 . Addition");
             System.out.println("2 . Subtraction");
@@ -22,91 +20,102 @@ public class calculator {
             System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
             System.out.print("Enter your choice: ");
 
-
         }
 
         void addition(){
-            System.out.println("Enter num1: ");
-            num1=sc.nextInt();
+            System.out.print("Enter num1: ");
+            num1 = sc.nextDouble();
 
-            System.out.println("Enter num2: ");
-            num2=sc.nextInt();
+            System.out.print("Enter num2: ");
+            num2= sc.nextDouble();
 
             ans = num1 + num2;
-            System.out.println("The sum of "+num1+" and "+num2+" is: "+ans+"");
-
+            System.out.println("Result: " + num1 + " + " + num2 + " = " + ans);
         }
 
         void subtraction(){
-            System.out.println("Enter num1: ");
-            num1=sc.nextInt();
+            System.out.print("Enter num1: ");
+            num1=sc.nextDouble();
 
-            System.out.println("Enter num2: ");
-            num2=sc.nextInt();
+            System.out.print("Enter num2: ");
+            num2=sc.nextDouble();
 
             ans = num1 -  num2;
-            System.out.println("The difference of "+num1+" and "+num2+" is: "+ans+"");
-
+            System.out.println("Result: " + num1 + " - " + num2 + " = " + ans);
         }
 
         void division(){
-            System.out.println("Enter num1: ");
-            num1=sc.nextInt();
+            System.out.print("Enter num1: ");
+            num1=sc.nextDouble();
 
-            System.out.println("Enter num2: ");
-            num2=sc.nextInt();
+            System.out.print("Enter num2: ");
+            num2=sc.nextDouble();
 
-            float ans = num1 /  num2;
-            System.out.println("The division of "+num1+" and "+num2+" is: "+ans+"");
+            if (num2==0) {
+                System.out.println("ERROR!  numbers cannot be divisible by zero");
+            }
+            else{
+            ans = num1 /  num2;
+            System.out.println("Result: " + num1 + " / " + num2 + " = " + ans);
+                }
 
         }
 
         void multiplication(){
-            System.out.println("Enter num1: ");
-            num1=sc.nextInt();
+            System.out.print("Enter num1: ");
+            num1=sc.nextDouble();
 
-            System.out.println("Enter num2: ");
-            num2=sc.nextInt();
+            System.out.print("Enter num2: ");
+            num2=sc.nextDouble();
 
             ans = num1 *  num2;
-            System.out.println("The multiplication of "+num1+" and "+num2+" is: "+ans+"");
-
+            System.out.println("Result: " + num1 + " * " + num2 + " = " + ans);
         }
 
         void modulus(){
-            System.out.println("Enter num1: ");
-            num1=sc.nextInt();
+            System.out.print("Enter num1: ");
+            num1=sc.nextDouble();
 
-            System.out.println("Enter num2: ");
-            num2=sc.nextInt();
+            System.out.print("Enter num2: ");
+            num2=sc.nextDouble();
 
+            if (num2==0) {
+                System.out.println("ERROR!  modulus by zero is not accepted");
+            }
+            else{
             ans = num1 %  num2;
-            System.out.println("The modulus of "+num1+" and "+num2+" is: "+ans+"");
+            System.out.println("Result: " + num1 + " % " + num2 + " = " + ans);
+                }
 
         }
 
         void area_of_rectangle(){
-            System.out.println("Enter num1: ");
-            num1=sc.nextInt();
+            System.out.print("Enter the length : ");
+            double length=sc.nextDouble();
 
-            System.out.println("Enter num2: ");
-            num2=sc.nextInt();
+            System.out.print("Enter the width : ");
+            double width=sc.nextDouble();
 
-            ans = num1 *  num2;
+            if (length < 0 || width < 0) {
+                System.out.println("ERROR! Area cannot be a negative "); 
+            }
+            else{
+            double ans = length *  width;
             System.out.println("The area rectangle is: "+ans+"");
-
+            }
         }
 
         void area_of_circle(){
-            System.out.println("Enter num1: ");
-            num1=sc.nextInt();
+            System.out.print("Enter radius of the circle : ");
+            double radius = sc.nextDouble();
 
-            System.out.println("Enter num2: ");
-            num2=sc.nextInt();
-
-            double ans = 2*pi*num1;
-            System.out.println("The Area is: "+ans+"");
-
+           if (radius<0) {
+            System.out.print("Error: Radius cannot be negative.");
+           }
+           else{
+            double area = Math.PI * radius * radius;
+            System.out.println("Area of circle: " + area);
+           }
         }
 
         public static int getoption() {
@@ -149,6 +158,7 @@ public class calculator {
                     break;
                 case 6:
                     myobj.area_of_rectangle();
+                    break;
                 case 7:
                     myobj.area_of_circle();
                     break;
@@ -158,12 +168,12 @@ public class calculator {
                 default:
                     System.out.println("Invalid choice. Please enter a number between 1 and 8.");
             }   
+            System.out.println("\n*********************************************\n");
             }
             while (choice != 8);{
                 sc.close();
             }
         }
-       
 		}
 	
 
