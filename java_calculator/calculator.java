@@ -24,10 +24,10 @@ public class calculator {
 
         void addition(){
             System.out.print("Enter num1: ");
-            num1 = sc.nextDouble();
+            num1 = getDouble();
 
             System.out.print("Enter num2: ");
-            num2= sc.nextDouble();
+            num2= getDouble();
 
             ans = num1 + num2;
             System.out.println("Result: " + num1 + " + " + num2 + " = " + ans);
@@ -35,10 +35,10 @@ public class calculator {
 
         void subtraction(){
             System.out.print("Enter num1: ");
-            num1=sc.nextDouble();
+            num1=getDouble();
 
             System.out.print("Enter num2: ");
-            num2=sc.nextDouble();
+            num2=getDouble();
 
             ans = num1 -  num2;
             System.out.println("Result: " + num1 + " - " + num2 + " = " + ans);
@@ -46,10 +46,10 @@ public class calculator {
 
         void division(){
             System.out.print("Enter num1: ");
-            num1=sc.nextDouble();
+            num1=getDouble();
 
             System.out.print("Enter num2: ");
-            num2=sc.nextDouble();
+            num2=getDouble();
 
             if (num2==0) {
                 System.out.println("ERROR!  numbers cannot be divisible by zero");
@@ -63,10 +63,10 @@ public class calculator {
 
         void multiplication(){
             System.out.print("Enter num1: ");
-            num1=sc.nextDouble();
+            num1=getDouble();
 
             System.out.print("Enter num2: ");
-            num2=sc.nextDouble();
+            num2=getDouble();
 
             ans = num1 *  num2;
             System.out.println("Result: " + num1 + " * " + num2 + " = " + ans);
@@ -74,10 +74,10 @@ public class calculator {
 
         void modulus(){
             System.out.print("Enter num1: ");
-            num1=sc.nextDouble();
+            num1=getDouble();
 
             System.out.print("Enter num2: ");
-            num2=sc.nextDouble();
+            num2=getDouble();
 
             if (num2==0) {
                 System.out.println("ERROR!  modulus by zero is not accepted");
@@ -91,10 +91,10 @@ public class calculator {
 
         void area_of_rectangle(){
             System.out.print("Enter the length : ");
-            double length=sc.nextDouble();
+            double length=getDouble();
 
             System.out.print("Enter the width : ");
-            double width=sc.nextDouble();
+            double width=getDouble();
 
             if (length < 0 || width < 0) {
                 System.out.println("ERROR! Area cannot be a negative "); 
@@ -107,7 +107,7 @@ public class calculator {
 
         void area_of_circle(){
             System.out.print("Enter radius of the circle : ");
-            double radius = sc.nextDouble();
+            double radius = getDouble();
 
            if (radius<0) {
             System.out.print("Error: Radius cannot be negative.");
@@ -129,11 +129,20 @@ public class calculator {
         return choice;
     }
 
+        private static double getDouble() {
+        while (true) {
+            try {
+                return sc.nextDouble();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number: ");
+                sc.next(); 
+            }
+        }
+    }
 
     public static void main(String args[]){
         int choice;
         calculator myobj=new calculator();
-
 
         do {
             myobj.options();
